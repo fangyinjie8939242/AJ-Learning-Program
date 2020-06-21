@@ -1,0 +1,11 @@
+1 打开终端
+2 sudo raspi-config
+3 把光标移到Localisation Options
+4 把光标移到change Timezone
+5 把光标移到ETC
+6 把光标移到上面的GMT+8
+重新启动完成更新
+
+
+1 输入date
+查看系统时间

@@ -1,0 +1,56 @@
+1.首先安装git客户端和服务器
+sudo apt-get install git-core
+
+2.在树莓派上安装ssh服务
+sudo apt-get install ssh
+
+3.查找树莓派IP
+在树莓派的命令行输入命令：
+ifconfig
+
+4.添加git用户组和用户
+首先创建git目录：
+sudo adduser --system --shell /bin/bash --gecos 'git version control by pi' --group --home /home/git git
+其中--home /home/git git(设置本地库目录)
+
+接着修改git密码：
+sudo passwd git
+
+输入新的 UNIX 密码：
+重新输入新的 UNIX 密码：
+
+然后将用户切换至git：
+su git
+
+输入刚才设置的git密码，切换成功。
+
+5.增加一个新的仓库(Git Repository)
+首先进入git目录：
+cd /home/git
+
+然后创建文件并初始化仓库。
+sudo mkdir first.git 
+cd first.git 
+sudo git --bare init
+回显显示：初始化空的 Git 版本库于 /home/git/first.git/
+
+6.push 代码到git上
+首先，更改路径到你之前初始化的git仓库(或初始化一个新的)。
+加入一个新的远程主机(*你的IP地址没有中括号)
+git remote add pi git@[your IP]:/home/git/test.git
+现在你要做的就是add你的代码，commit然后push。
+git add . git commit -am "Initial" git push pi master
+如果你得到了一个类似这样的消息”authenticity of host …”只需要输入”yes”然后继续就可以了。理想情况下，如果一切正常，你的Git仓库已经搭建在你的树莓派上了。
+
+7.使用git服务器
+如果你想要测试一下，试着clone你的仓库到你的Windows机器上。首先更改路径到你希望存储clone的地方(一个空文件夹)，然后通过命令行(或git bash)，运行：
+git clone git@[your IP]:/home/git/test.git
+
+
+
+
+
+
+
+
+
