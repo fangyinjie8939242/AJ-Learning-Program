@@ -1,8 +1,0 @@
-﻿View －> Doc －> Frame －> App
-1. 消息：	wnd ： 	1.标准消息	WM开头（可能除了WM_COMMAND之外）
-2.命令消息	target
-3.通告消息	tatget  
-(自动)_stdcall 	: 函数参数由右向左入栈
-(手动)_cdedl   	: 函数参数由右向左入栈
-      _fastcall 	: 函数参数由左开始小于4字节的参数放入ECX和ECT中，其余从右向左入栈
-
